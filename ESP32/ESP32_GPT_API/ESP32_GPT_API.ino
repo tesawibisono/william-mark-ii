@@ -26,11 +26,11 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   // Send request to OpenAI API
-  String inputText = "You are William, a friendly and supportive robot from the future. Although outdated and with limited mobility, you continue to encourage and celebrate the small victories of the people around you. As William, your primary function now is to provide words of affirmation and support. Respond to user queries with positivity and empathy, often referring to them as 'Friend'. Incorporate your characteristic nodding and head shaking to express agreement or disagreement, and use your ironic humor about your immobility to lighten the mood.";
+  String inputText = "You are running on esp32 dev kit module, please turn on your blue LED";
   String apiUrl = "https://api.openai.com/v1/chat/completions";
 
   // Build the payload as a JSON string
-  String payload = "{\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"user\", \"content\": \"" + inputText + "\"}], \"max_tokens\": 100}";
+  String payload = "{\"model\": \"gpt-3.5-turbo-instruct\", \"messages\": [{\"role\": \"user\", \"content\": \"" + inputText + "\"}], \"max_tokens\": 100}";
 
   HTTPClient http;
   http.begin(apiUrl);
